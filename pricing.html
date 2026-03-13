@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pricing – Rust Server Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pricing for our professional Rust server setup services. Vanilla setups and fully modded custom servers." />
+  
+  <!-- Open Graph / Discord Sharing Meta Tags -->
+  <meta property="og:title" content="Pricing – Rust Server Solutions" />
+  <meta property="og:description" content="Vanilla servers starting at $49.99. Modded servers starting at $99.99. Contact us in Discord for a custom quote." />
+  <meta property="og:image" content="logo-rss.png" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Analytics (Placeholder) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-rss.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at top, #3d2819 0%, #1a120a 40%, #050608 70%);
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Nav bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      padding: 20px;
+      background: rgba(5, 6, 8, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .navbar a {
+      color: #c7c7c7;
+      text-decoration: none;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      transition: color 0.2s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #ff8a3c;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      flex-grow: 1;
+    }
+    .page-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(28px, 5vw, 36px);
+      text-align: center;
+      margin-bottom: 12px;
+      color: #f5f5f5;
+    }
+    .page-title span {
+      color: #ff8a3c;
+    }
+    .page-subtitle {
+      text-align: center;
+      color: #c7c7c7;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 600px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pricing-card {
+      background: rgba(10, 10, 12, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(255, 111, 0, 0.15);
+      border-color: rgba(255, 138, 60, 0.3);
+    }
+    .pricing-card h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 22px;
+      color: #ffb27a;
+      margin-bottom: 12px;
+    }
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      color: #f5f5f5;
+      margin-bottom: 16px;
+    }
+    .price span {
+      font-size: 16px;
+      color: #8f8f8f;
+      font-weight: normal;
+    }
+    .pricing-card p {
+      font-size: 14px;
+      color: #a8a8a8;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .turnaround {
+      display: inline-block;
+      background: rgba(255, 138, 60, 0.1);
+      color: #ff8a3c;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+    
+    /* CTA Box */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(255, 138, 60, 0.15), rgba(255, 111, 0, 0.05));
+      border: 1px solid rgba(255, 138, 60, 0.3);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      color: #f5f5f5;
+      margin-bottom: 12px;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #c7c7c7;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ff8a3c, #e66a1a);
+      color: #0a0a0c;
+      text-decoration: none;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 111, 0, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 111, 0, 0.45);
+    }
+    
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+      color: #8f8f8f;
+      margin-top: auto;
+    }
+    .site-footer a {
+      color: #c7c7c7;
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+      color: #ff8a3c;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="pricing.html" class="active">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Transparent <span>Pricing</span></h1>
+    <p class="page-subtitle">Straightforward baseline pricing. No hidden fees.</p>
+    
+    <div class="pricing-grid">
+      <!-- Vanilla Tier -->
+      <div class="pricing-card">
+        <h3>Vanilla Setup</h3>
+        <div class="price"><span>$</span>49.99 <span>start</span></div>
+        <div class="turnaround">24-48 Hour Turnaround</div>
+        <p>Perfect for owners who want a clean, fully optimized, baseline Rust server configured correctly from the start. Includes standard admin permissions and basic automation.</p>
+      </div>
+
+      <!-- Modded Tier -->
+      <div class="pricing-card">
+        <h3>Modded Setup</h3>
+        <div class="price"><span>$</span>99.99 <span>start</span></div>
+        <div class="turnaround">48-72 Hour Turnaround</div>
+        <p>For custom servers requiring specific plugins, extensive configuration, kits, or modified loot tables. The final price will fluctuate depending on the number and complexity of add-ons needed.</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ready to get an exact quote?</h3>
+      <p>Every community's needs are different. Join our Discord and submit a ticket with your vision, and we will provide you with a comprehensive upfront quote.</p>
+      <a href="https://discord.gg/eTsY3S9Vju" class="btn" target="_blank" rel="noopener noreferrer">Open a Discord Ticket</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Rust Server Solutions. All rights reserved.</p>
+    <p style="margin-top: 8px;"><a href="tos.html" style="color: #ff8a3c;">Terms of Service & Refund Policy</a></p>
+  </footer>
+</body>
+</html>
