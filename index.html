@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rust Server Solutions – Coming Soon</title>
+  <title>Rust Server Solutions – Professional Server Setup &amp; Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rust server setup and configuration. We build your server the right way: plugins, permissions, backups, and 30 days support. You pick the host; we get it running." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -13,74 +14,363 @@
       margin: 0;
       padding: 0;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       min-height: 100vh;
+      background: radial-gradient(ellipse at top, #3d2819 0%, #1a120a 40%, #050608 70%);
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+    }
+    /* Hero */
+    .hero {
+      min-height: 60vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #3d2819 0, #050608 55%);
-      color: #f5f5f5;
-      font-family: 'Permanent Marker', cursive;
-    }
-    .card {
-      background: rgba(10, 10, 12, 0.9);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 32px 28px;
-      max-width: 420px;
-      width: 100%;
       text-align: center;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+      padding: 48px 24px 64px;
     }
-    .badge {
+    .hero-logo {
+      width: 200px;
+      max-width: 60%;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.8));
+    }
+    .hero .badge {
+      font-family: 'Permanent Marker', cursive;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px;
+      padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: linear-gradient(90deg, rgba(255, 111, 0, 0.15), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(90deg, rgba(255, 111, 0, 0.2), rgba(255, 255, 255, 0.04));
       font-size: 13px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       color: #ffb27a;
     }
-    .badge-dot {
-      width: 7px;
-      height: 7px;
+    .hero .badge-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: #ff6f00;
-      box-shadow: 0 0 10px rgba(255, 111, 0, 0.8);
+      background: #ff8a3c;
+      box-shadow: 0 0 12px rgba(255, 111, 0, 0.8);
     }
-    h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(28px, 6vw, 42px);
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
-    h1 span {
+    .hero h1 span {
       color: #ff8a3c;
     }
-    p {
-      font-size: 16px;
-      line-height: 1.5;
+    .hero .tagline {
+      font-size: clamp(15px, 2.5vw, 18px);
       color: #c7c7c7;
-      margin-bottom: 22px;
+      max-width: 480px;
+      margin-bottom: 28px;
     }
-    .small {
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ff8a3c, #e66a1a);
+      color: #0a0a0c;
+      text-decoration: none;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 111, 0, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 111, 0, 0.45);
+    }
+    /* Section titles */
+    section {
+      padding: 40px 0 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    section:first-of-type {
+      border-top: none;
+    }
+    .section-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 22px;
+      color: #ffb27a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section-title span {
+      color: #ff8a3c;
+    }
+    /* Services */
+    .services-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .service-card {
+      background: rgba(10, 10, 12, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .service-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 17px;
+      color: #f5f5f5;
+      margin-bottom: 8px;
+    }
+    .service-card p {
       font-size: 14px;
+      color: #a8a8a8;
+    }
+    .add-ons {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .add-ons .note {
+      font-size: 13px;
       color: #8f8f8f;
+      margin-bottom: 12px;
+    }
+    /* How it works */
+    .steps {
+      display: grid;
+      gap: 20px;
+    }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(10, 10, 12, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, rgba(255, 138, 60, 0.3), rgba(255, 111, 0, 0.15));
+      border: 1px solid rgba(255, 138, 60, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ff8a3c;
+    }
+    .step h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+    .step p {
+      font-size: 14px;
+      color: #a8a8a8;
+    }
+    /* Support */
+    .support-box {
+      background: rgba(10, 10, 12, 0.8);
+      border: 1px solid rgba(255, 138, 60, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .support-box p {
+      font-size: 15px;
+      color: #c7c7c7;
+    }
+    .support-box strong {
+      color: #ffb27a;
+    }
+    /* Disclaimer */
+    .disclaimer {
+      background: rgba(10, 10, 12, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .disclaimer h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      color: #a8a8a8;
+      margin-bottom: 12px;
+    }
+    .disclaimer p {
+      font-size: 13px;
+      color: #8f8f8f;
+      margin-bottom: 8px;
+    }
+    .disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+    .disclaimer .my-job {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #b8b8b8;
+      font-size: 14px;
+    }
+    /* Contact */
+    #contact {
+      padding: 48px 0 64px;
+      text-align: center;
+    }
+    #contact .section-title {
+      margin-bottom: 12px;
+    }
+    #contact .sub {
+      font-size: 14px;
+      color: #a8a8a8;
+      margin-bottom: 24px;
+    }
+    .contact-email {
+      display: inline-block;
+      font-size: 18px;
+      color: #ff8a3c;
+      text-decoration: none;
+      margin-bottom: 24px;
+      word-break: break-all;
+    }
+    .contact-email:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <header class="hero">
+    <img src="logo-rss.png" alt="Rust Server Solutions logo" class="hero-logo" />
     <div class="badge">
       <span class="badge-dot"></span>
       <span>Rust Server Solutions</span>
     </div>
     <h1><span>Rust</span> Server Solutions</h1>
-    <p>High‑performance Rust servers configured and optimized for you. A dedicated setup and support service tailored for Rust communities and creators.</p>
-    <p class="small">Full website and services launching soon.</p>
-  </div>
+    <p class="tagline">You pick the host. You give me access. I build your server the most reliable way—plugins, permissions, backups, and support. You run it.</p>
+    <a href="#contact" class="btn">Get your server built</a>
+  </header>
+
+  <main class="container">
+    <section id="services">
+      <h2 class="section-title">What’s <span>included</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="full-server-build.png" alt="Full server build illustration" class="service-image" />
+          <h3>Full server build</h3>
+          <p>Core setup done the right way on <strong>your</strong> host. Optimized for stability and performance.</p>
+          <p class="note"><strong>*</strong> Hardware and hosting are <strong>not</strong> included — you will need your own host.</p>
+        </div>
+        <div class="service-card">
+          <img src="plugins-permissions.png" alt="Plugins and permissions illustration" class="service-image" />
+          <h3>Plugins &amp; permissions</h3>
+          <p>Plugins installed and configured if you want them. Permissions set up so everything works together.</p>
+        </div>
+        <div class="service-card">
+          <img src="restarts-backups.png" alt="Restart and backup schedules illustration" class="service-image" />
+          <h3>Restart &amp; backup schedules</h3>
+          <p>Restart and backup schedules configured so your server stays healthy and your data is safe.</p>
+        </div>
+        <div class="service-card">
+          <img src="custom-requests.png" alt="Custom requests illustration" class="service-image" />
+          <h3>Your requests</h3>
+          <p>Any other setup or config you need within reason. We align everything to how you want to run the server.</p>
+        </div>
+      </div>
+      <div class="add-ons">
+        <p class="note">Add-ons (additional cost): custom plugins, custom loot tables.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <img src="custom-plugins.png" alt="Custom plugins illustration" class="service-image" />
+            <h3>Custom plugins</h3>
+            <p>Bespoke plugins built or heavily customized for your server. Quoted separately.</p>
+          </div>
+          <div class="service-card">
+            <img src="custom-loot-tables.png" alt="Custom loot tables illustration" class="service-image" />
+            <h3>Custom loot tables</h3>
+            <p>Loot tables tailored to your rules and balance. Quoted separately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <h2 class="section-title">How it <span>works</span></h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div>
+            <img src="choose-host.png" alt="Choosing a Rust server host illustration" class="service-image" />
+            <h3>You choose a host</h3>
+            <p>You pick your VPS or dedicated host. I work with whatever you have.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div>
+            <img src="access-granted.png" alt="Access granted illustration" class="service-image" />
+            <h3>You give me access</h3>
+            <p>Unrestricted access for 48–72 hours. I build the server, set plugins, permissions, restarts, backups, and any other requests.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div>
+            <img src="handover-support.png" alt="Handover and support illustration" class="service-image" />
+            <h3>Handover + support</h3>
+            <p>Server is handed over to you. You get <strong>30 days</strong> of support from handover, or <strong>1 forced wipe cycle</strong>, whichever applies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <h2 class="section-title">Support</h2>
+      <div class="support-box">
+        <p><strong>30 days</strong> of support from the day the server is handed over to you, or <strong>1 forced wipe cycle</strong>—whichever applies. After that, you’re set.</p>
+      </div>
+    </section>
+
+    <section id="disclaimer">
+      <h2 class="section-title">Disclaimer</h2>
+      <div class="disclaimer">
+        <h3>What I’m not responsible for</h3>
+        <p>I am not responsible for advertising your server, creating custom graphics (logos, banners, etc.), or populating your server with players. Those are entirely up to you.</p>
+        <p class="my-job">My job is to get your server built and running. Yours is to grow and run your community.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Ready to get your server <span>running?</span></h2>
+      <p class="sub">Reach out with your host, goals, and any add-ons you want (custom plugins, custom loot tables).</p>
+      <a href="mailto:business@rustserversolutions.biz" class="contact-email">business@rustserversolutions.biz</a>
+      <br />
+      <a href="mailto:business@rustserversolutions.biz" class="btn">Email me</a>
+      <p class="sub" style="margin-top: 24px;">Or join the Discord to chat:</p>
+      <a href="https://discord.gg/eTsY3S9Vju" class="btn" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+    </section>
+  </main>
 </body>
 </html>
