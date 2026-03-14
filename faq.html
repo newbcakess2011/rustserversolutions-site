@@ -146,12 +146,68 @@
       text-decoration: underline;
       color: #ff8a3c;
     }
+
+    /* Floating Discord Button */
+    .floating-discord {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #5865F2;
+      color: #fff;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: system-ui, sans-serif;
+    }
+    .floating-discord:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(88, 101, 242, 0.6);
+      color: #fff;
+    }
+    .floating-discord svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+    .floating-discord-close {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #36393f;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      z-index: 1001;
+      padding: 0;
+      line-height: 1;
+    }
+    .floating-discord-close:hover {
+      background: #ed4245;
+    }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="index.html#about">About</a>
+    <a href="hosts.html">Hosts</a>
+    <a href="checklist.html">Checklist</a>
     <a href="pricing.html">Pricing</a>
     <a href="faq.html" class="active">FAQ</a>
     <a href="index.html#contact">Contact</a>
@@ -164,7 +220,7 @@
       
       <div class="faq-item">
         <h3 class="faq-question">What hosts do you recommend?</h3>
-        <p class="faq-answer">Our recommendation would be <strong><a href="https://physgun.com/" target="_blank" rel="noopener noreferrer" style="color: #ff8a3c; text-decoration: none; border-bottom: 1px dotted #ff8a3c;">Physgun</a></strong>. We have partnered up with Bull over at Rust Admin Academy to offer a promo code at checkout to help you save a couple of bucks.</p>
+        <p class="faq-answer">Our recommendation would be <strong><a href="https://physgun.com?affiliate=srtbull" target="_blank" rel="noopener noreferrer" style="color: #ff8a3c; text-decoration: none; border-bottom: 1px dotted #ff8a3c;">Physgun</a></strong>. We have partnered up with Bull over at Rust Admin Academy to offer a promo code at checkout to help you save a couple of bucks.</p>
         <div class="promo-box">
           Use code <code>SRTBULL</code> at checkout.
         </div>
@@ -202,5 +258,15 @@
     <p>&copy; 2026 Rust Server Solutions. All rights reserved.</p>
     <p style="margin-top: 8px;"><a href="tos.html" style="color: #ff8a3c;">Terms of Service & Refund Policy</a></p>
   </footer>
+
+  <div id="discordWidget" style="position: fixed; bottom: 24px; right: 24px; z-index: 1000;">
+    <button class="floating-discord-close" onclick="document.getElementById('discordWidget').style.display='none'" aria-label="Close">&times;</button>
+    <a href="https://discord.gg/eTsY3S9Vju" class="floating-discord" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 127.14 96.36">
+        <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53.01s5.02-12.69,11.45-12.69S54,46.08,53.88,53.01C53.88,60,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53.01s5.02-12.69,11.43-12.69S96.2,46.08,96.08,53.01C96.08,60,91.04,65.69,84.69,65.69Z"/>
+      </svg>
+      <span>Join Discord</span>
+    </a>
+  </div>
 </body>
 </html>

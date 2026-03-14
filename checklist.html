@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Preflight Checklist – Rust Server Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A comprehensive checklist of what you need before ordering your Rust server setup." />
+  
+  <meta property="og:title" content="Preflight Checklist – Rust Server Solutions" />
+  <meta property="og:description" content="Have these things ready before you order your custom Rust server to ensure a smooth build process." />
+  <meta property="og:image" content="logo-rss.png" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="icon" type="image/png" href="logo-rss.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at top, #3d2819 0%, #1a120a 40%, #050608 70%);
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      display: flex; justify-content: center; align-items: center; gap: 24px; padding: 20px;
+      background: rgba(5, 6, 8, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); flex-wrap: wrap;
+    }
+    .navbar a {
+      color: #c7c7c7; text-decoration: none; font-family: 'Permanent Marker', cursive;
+      font-size: 16px; transition: color 0.2s ease;
+    }
+    .navbar a:hover, .navbar a.active { color: #ff8a3c; }
+    
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; flex-grow: 1; }
+    .page-title {
+      font-family: 'Permanent Marker', cursive; font-size: clamp(28px, 5vw, 36px);
+      text-align: center; margin-bottom: 12px; color: #f5f5f5;
+    }
+    .page-title span { color: #ff8a3c; }
+    .page-subtitle { text-align: center; color: #c7c7c7; margin-bottom: 48px; font-size: 16px; }
+    
+    .checklist-section {
+      background: rgba(10, 10, 12, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .checklist-section h3 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 22px;
+      color: #ffb27a;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-bottom: 12px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      background: rgba(0,0,0,0.2);
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 3px solid #ff8a3c;
+    }
+    .check-item:last-child { margin-bottom: 0; }
+    .check-icon {
+      flex-shrink: 0; width: 24px; height: 24px; color: #ff8a3c;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-content strong { color: #fff; display: block; margin-bottom: 4px; font-size: 16px; }
+    .check-content p { font-size: 14px; color: #a8a8a8; margin: 0; }
+    
+    .btn {
+      display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #ff8a3c, #e66a1a);
+      color: #0a0a0c; text-decoration: none; font-family: 'Permanent Marker', cursive;
+      font-size: 16px; border-radius: 10px; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 111, 0, 0.35); transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-align: center; margin-top: 32px;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255, 111, 0, 0.45); }
+    
+    .site-footer {
+      text-align: center; padding: 32px 24px; border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 13px; color: #8f8f8f; margin-top: auto;
+    }
+    .site-footer a { color: #c7c7c7; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; color: #ff8a3c; }
+
+    /* Floating Discord Button */
+    .floating-discord {
+      position: fixed; bottom: 24px; right: 24px; background: #5865F2; color: #fff;
+      border-radius: 50px; display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+      box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4); z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none;
+      font-weight: 600; font-size: 15px; font-family: system-ui, sans-serif;
+    }
+    .floating-discord:hover {
+      transform: translateY(-3px); box-shadow: 0 6px 24px rgba(88, 101, 242, 0.6); color: #fff;
+    }
+    .floating-discord svg { width: 24px; height: 24px; fill: currentColor; }
+    .floating-discord-close {
+      position: absolute; top: -8px; right: -8px; background: #36393f; color: #fff;
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); z-index: 1001; padding: 0; line-height: 1;
+    }
+    .floating-discord-close:hover { background: #ed4245; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="hosts.html">Hosts</a>
+    <a href="checklist.html" class="active">Checklist</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Preflight <span>Checklist</span></h1>
+    <p class="page-subtitle">To ensure a swift and smooth server build, please review this checklist and gather the necessary information before opening a ticket with us.</p>
+    
+    <div class="checklist-section">
+      <h3>1. Hardware &amp; Hosting Access</h3>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Purchased Host</strong>
+          <p>You must have an active game server purchased from a hosting provider (like Physgun). We do not provide hardware.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Panel Credentials / Subuser Access</strong>
+          <p>We will need access to your game panel (Pterodactyl, TCAdmin, etc.). This can be your login, or a "Subuser" account created with full permissions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <h3>2. Server Identity</h3>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Exact Server Name &amp; Description</strong>
+          <p>Know exactly what you want your server to be called in the Rust browser, and the short description that appears when players click on it.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Header Image &amp; URL</strong>
+          <p>Have a 512x256 pixel header image uploaded somewhere (like Imgur) for your server banner. Have your Discord invite link ready.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <h3>3. Schedules &amp; Management</h3>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Wipe Schedule</strong>
+          <p>Decide on your Map and Blueprint wipe frequency (Weekly, Bi-weekly, Monthly). Let us know the exact day of the week and time you prefer.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Staff Roster (Steam64 IDs)</strong>
+          <p>Have a list of the 17-digit Steam64 IDs for all Owners, Admins, and Moderators who need permissions assigned.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <h3>4. For Modded Servers (If Applicable)</h3>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>Plugin Wishlist</strong>
+          <p>A comprehensive list of mechanics, features, or specific plugins you want installed (e.g., Kits, TP, Loot+).</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div class="check-content">
+          <strong>VIP Tier Definitions</strong>
+          <p>If you plan on having VIP ranks, know exactly what permissions, kits, or perks each rank should receive so we can build the groups accurately.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="https://discord.gg/eTsY3S9Vju" class="btn" target="_blank" rel="noopener noreferrer">I'm ready! Open a ticket</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Rust Server Solutions. All rights reserved.</p>
+    <p style="margin-top: 8px;"><a href="tos.html" style="color: #ff8a3c;">Terms of Service & Refund Policy</a></p>
+  </footer>
+
+  <div id="discordWidget" style="position: fixed; bottom: 24px; right: 24px; z-index: 1000;">
+    <button class="floating-discord-close" onclick="document.getElementById('discordWidget').style.display='none'" aria-label="Close">&times;</button>
+    <a href="https://discord.gg/eTsY3S9Vju" class="floating-discord" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 127.14 96.36">
+        <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53.01s5.02-12.69,11.45-12.69S54,46.08,53.88,53.01C53.88,60,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53.01s5.02-12.69,11.43-12.69S96.2,46.08,96.08,53.01C96.08,60,91.04,65.69,84.69,65.69Z"/>
+      </svg>
+      <span>Join Discord</span>
+    </a>
+  </div>
+</body>
+</html>

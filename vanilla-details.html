@@ -2,24 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Terms of Service – Rust Server Solutions</title>
+  <title>Vanilla Setup Details – Rust Server Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Terms of Service and Refund Policy for Rust Server Solutions." />
+  <meta name="description" content="Find out exactly what is included in our Vanilla Rust Server Setup." />
   
   <!-- Open Graph / Discord Sharing Meta Tags -->
-  <meta property="og:title" content="Terms of Service – Rust Server Solutions" />
-  <meta property="og:description" content="Read our terms of service, refund policy, and client agreements." />
+  <meta property="og:title" content="Vanilla Setup Details – Rust Server Solutions" />
+  <meta property="og:description" content="A fully optimized, ready-to-run Vanilla server setup. See what's included." />
   <meta property="og:image" content="logo-rss.png" />
   <meta property="og:type" content="website" />
-  
-  <!-- Google Analytics (Placeholder) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo-rss.png" />
@@ -70,7 +61,7 @@
       color: #ff8a3c;
     }
     .container {
-      max-width: 720px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 48px 24px 80px;
       flex-grow: 1;
@@ -79,46 +70,80 @@
       font-family: 'Permanent Marker', cursive;
       font-size: clamp(28px, 5vw, 36px);
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 12px;
       color: #f5f5f5;
     }
     .page-title span {
       color: #ff8a3c;
     }
+    .page-subtitle {
+      text-align: center;
+      color: #c7c7c7;
+      margin-bottom: 48px;
+      font-size: 16px;
+    }
     
-    /* Document Styling */
-    .legal-content {
+    /* Details Sections */
+    .details-section {
       background: rgba(10, 10, 12, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 32px;
+      margin-bottom: 24px;
     }
-    .legal-content h2 {
+    .details-section h3 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 20px;
+      font-size: 22px;
       color: #ffb27a;
-      margin-top: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .details-list {
+      list-style: none;
+    }
+    .details-list li {
+      position: relative;
+      padding-left: 24px;
       margin-bottom: 12px;
-    }
-    .legal-content h2:first-child {
-      margin-top: 0;
-    }
-    .legal-content p {
       font-size: 15px;
-      color: #c7c7c7;
-      margin-bottom: 16px;
+      color: #e0e0e0;
     }
-    .legal-content ul {
-      margin-left: 20px;
-      margin-bottom: 16px;
-      color: #c7c7c7;
-      font-size: 15px;
+    .details-list li::before {
+      content: "•";
+      color: #ff8a3c;
+      font-size: 20px;
+      position: absolute;
+      left: 0;
+      top: -2px;
     }
-    .legal-content li {
-      margin-bottom: 8px;
+    .details-list strong {
+      color: #fff;
     }
-    .legal-content strong {
-      color: #f5f5f5;
+    
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ff8a3c, #e66a1a);
+      color: #0a0a0c;
+      text-decoration: none;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 111, 0, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-align: center;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 111, 0, 0.45);
+    }
+    .back-btn-container {
+      text-align: center;
+      margin-top: 40px;
     }
 
     /* Footer */
@@ -206,31 +231,42 @@
   </nav>
 
   <main class="container">
-    <h1 class="page-title">Terms of Service & <span>Policies</span></h1>
+    <h1 class="page-title">What you get: <span>Vanilla Setup</span></h1>
+    <p class="page-subtitle">A clean, perfectly optimized Vanilla server built the right way. No bloat, just the tools you need.</p>
     
-    <div class="legal-content">
-      <h2>1. Scope of Work</h2>
-      <p>Rust Server Solutions ("RSS") provides server configuration, plugin installation, and setup services for Rust game servers. <strong>We do not provide hardware, physical hosting, or server hosting subscriptions.</strong> The client is entirely responsible for purchasing and maintaining their own hosting provider.</p>
-      
-      <h2>2. Payment & Deposits</h2>
-      <p>For custom modded servers or setups requiring the purchase of premium plugins, an upfront deposit is required. <strong>This deposit is strictly non-refundable</strong> as it is used to acquire licenses for the premium assets on your behalf.</p>
-
-      <h2>3. Refund Policy</h2>
-      <p>Because our service consists of digital labor and configuration time, <strong>all sales are final once work has commenced.</strong> If you wish to cancel your project before we have logged into your server or begun work, we will issue a refund minus any premium plugin costs already incurred. Once a server is configured and handed over, no refunds will be issued under any circumstances.</p>
-
-      <h2>4. 30-Day Support Guarantee</h2>
-      <p>All completed server builds come with 30 days of standard technical support, or support until the next forced game wipe (whichever applies first). This covers fixing bugs related to our setup, repairing configuration errors, and general troubleshooting.</p>
-      <ul>
-        <li>Support does <strong>not</strong> cover adding entirely new features or plugins not discussed in the original quote.</li>
-        <li>If the client or a third-party developer modifies the configuration files we created and breaks the server, repairing the server is not covered under free support and will incur a service fee.</li>
+    <div class="details-section">
+      <h3>⚙️ Core Server Setup & Optimization</h3>
+      <ul class="details-list">
+        <li><strong>Oxide or Carbon Framework Installation:</strong> Installed and optimized for backend use.</li>
+        <li><strong>Convar Optimizations:</strong> Custom startup parameters and network configurations for maximum server FPS and stability.</li>
+        <li><strong>Wipe Automation:</strong> Automated scripts/schedules for Map Wipes and Full Wipes (if supported by your host).</li>
+        <li><strong>Restart Schedules:</strong> Automated daily/weekly restarts to keep the server fresh and reduce memory leaks.</li>
+        <li><strong>RCON Configuration:</strong> Secured connection setup for tools like RustAdmin, BattleMetrics, or Pterodactyl panels.</li>
       </ul>
-
-      <h2>5. Client Responsibilities & Access</h2>
-      <p>To ensure a clean and fast setup, the client agrees <strong>not to log into the server backend or modify files</strong> while RSS is actively building the server. Interfering with the build process can cause corruptions that delay the delivery time.</p>
-      
-      <h2>6. Privacy & Anonymity</h2>
-      <p>RSS takes privacy seriously. We will never publicly disclose our client list, share server IPs, distribute custom configurations made specifically for your server, or name-drop your brand without explicit written permission.</p>
     </div>
+
+    <div class="details-section">
+      <h3>🛡️ Admin & Moderation Tools (Invisible to Players)</h3>
+      <ul class="details-list">
+        <li><strong>Permissions System:</strong> Cleanly built permission groups (e.g., Owner, Admin, Moderator) so staff only have access to what they need.</li>
+        <li><strong>Vanish:</strong> Allows staff to go completely invisible to spectate suspicious players.</li>
+        <li><strong>Admin Radar:</strong> Shows ESP lines for players, stashes, and containers to easily catch cheaters using ESP or aimbot.</li>
+        <li><strong>Inventory Viewer:</strong> Allows staff to inspect the inventory of a suspect player without them knowing.</li>
+      </ul>
+    </div>
+
+    <div class="details-section">
+      <h3>🤝 Handover & Support</h3>
+      <ul class="details-list">
+        <li><strong>Server Handover Guide:</strong> A quick rundown on how to use your new admin tools.</li>
+        <li><strong>30 Days of Support:</strong> We stick around for 30 days (or one forced wipe cycle) to fix any bugs or issues that pop up.</li>
+      </ul>
+    </div>
+    
+    <div class="back-btn-container">
+      <a href="pricing.html" class="btn">Back to Pricing</a>
+    </div>
+
   </main>
 
   <footer class="site-footer">
